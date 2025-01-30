@@ -322,9 +322,15 @@ svg * {
 
 body {
   font-size: clamp(1rem, 0.8548387097rem + 0.6451612903vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family-base);
   color: var(--color-gray);
   background-color: var(--color-backgr);
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1, .h1,
@@ -406,19 +412,24 @@ button[aria-label]::before {
   margin-inline-end: var(--size32);
 }
 .header__menu {
+  display: flex;
   flex-grow: 1;
 }
 .header__menu-list {
   display: flex;
+  flex-grow: 1;
   align-items: center;
   column-gap: 32px;
 }
 .header__menu-list li:last-child {
   margin-inline-start: auto;
 }
+.header__menu-item {
+  display: flex;
+}
 .header__menu-link {
-  line-height: var(--size32);
-  font-size: var(--size24);
+  line-height: var(--size24);
+  font-size: var(--size16);
   font-weight: 500;
   align-items: center;
 }

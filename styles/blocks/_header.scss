@@ -12,10 +12,12 @@
         margin-inline-end: var(--size32);
     }
     &__menu {
+        display: flex;
         flex-grow: 1;
     }
     &__menu-list {
         display: flex;
+        flex-grow: 1;
         align-items: center;
         column-gap: 32px;
 
@@ -23,9 +25,12 @@
             margin-inline-start: auto;
         }
     }
+    &__menu-item {
+        display: flex;
+    }
     &__menu-link {
-        line-height: var(--size32);
-        font-size: var(--size24);
+        line-height: var(--size24);
+        font-size: var(--size16);
         font-weight: 500;
         align-items: center;
 
