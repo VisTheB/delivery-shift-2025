@@ -53,8 +53,8 @@ $mobile-s: 480.98;
     }
 }
 
-/* Убрать эффект залипания hover на тач-скринах */
 @mixin hover($hasActiveEffectOnMobile: true) {
+    /** Убрать эффект залипания hover на тач-скринах */
     @media (any-hover: hover) {
         &:hover {
             @content;
