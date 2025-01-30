@@ -360,7 +360,6 @@ svg * {
 
 a {
   color: var(--color-text-secondary);
-  /** Убрать эффект залипания hover на тач-скринах */
 }
 @media (any-hover: hover) {
   a:hover {

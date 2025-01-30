@@ -54,7 +54,6 @@ $mobile-s: 480.98;
 }
 
 @mixin hover($hasActiveEffectOnMobile: true) {
-    /** Убрать эффект залипания hover на тач-скринах */
     @media (any-hover: hover) {
         &:hover {
             @content;
