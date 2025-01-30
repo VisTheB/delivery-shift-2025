@@ -449,4 +449,33 @@ button[aria-label]::before {
   margin-inline-end: var(--size16);
 }
 
+.footer {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border-light);
+}
+.footer__inner {
+  padding-inline: 0;
+}
+.footer__menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.125rem;
+  padding-block: 0.625rem;
+  font-weight: 400;
+  line-height: 0.75rem;
+  font-size: 0.625rem;
+}
+.footer__menu-item {
+  flex-basis: 7.5rem;
+}
+.footer span.is-active {
+  color: var(--color-blue);
+}
+
 /*# sourceMappingURL=main.css.map */

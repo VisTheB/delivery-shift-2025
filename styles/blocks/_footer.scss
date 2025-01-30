@@ -1,0 +1,34 @@
+@use '../helpers' as *;
+
+.footer {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border-light); 
+    //height: rem(58);
+
+    &__inner {
+        padding-inline: 0;
+    }
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__menu-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: rem(2);
+
+        padding-block: rem(10);
+
+        font-weight: 400;
+        line-height: rem(12);
+        font-size: rem(10);
+    }
+    &__menu-item {
+        flex-basis: rem(120);
+    }
+    span.is-active {
+        color: var(--color-blue);
+    }
+}
