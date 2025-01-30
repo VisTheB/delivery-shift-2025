@@ -264,13 +264,17 @@ svg * {
 }
 :root {
   --color-white: #FFF;
+  --color-backgr: #F3F4F6;
   --color-dark: #141C24;
   --color-blue: #1975FF;
-  --color-gray: #97A1AF;
+  --color-gray: #637083;
   --color-gray-light: #CED2DA;
+  --color-text-secondary: #344051;
   --color-green: #40BF7F;
   --color-red: #F50;
   --font-family-base: "Inter", sans-serif;
+  --second-family: "Fira Sans", sans-serif;
+  --third-family: "Roboto", sans-serif;
   --container-width: 100rem;
   --container-padding-x: 1rem;
   --transition-duration: 0.2s;
@@ -310,6 +314,66 @@ svg * {
   .visible-mobile {
     display: none !important;
   }
+}
+
+body {
+  font-size: clamp(1rem, 0.8548387097rem + 0.6451612903vw, 1.5rem);
+  font-family: var(--font-family-base);
+  color: var(--color-gray);
+  background-color: var(--color-backgr);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+h1, .h1 {
+  font-size: clamp(1.75rem, 1.3870967742rem + 1.6129032258vw, 3rem);
+}
+
+h2, .h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: var(--color-text-secondary);
+  /** Убрать эффект залипания hover на тач-скринах */
+}
+@media (any-hover: hover) {
+  a:hover {
+    color: var(--color-blue);
+  }
+}
+@media (any-hover: none) {
+  a:active {
+    color: var(--color-blue);
+  }
+}
+a[class] {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=main.css.map */
