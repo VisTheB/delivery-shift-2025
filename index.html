@@ -41,8 +41,8 @@
         </div>
     </header> 
     <main>
-        <section class="about">
-            <div class="about__body container">
+        <div class="sections container">
+            <section class="about__body">
                 <h1 class="about__title">Мы доставим ваш заказ</h1>
                 <p class="about__subtitle">Отправляйте посылки в приложении Шифт Delivery</p>
                 <div class="about__qr">
@@ -58,9 +58,62 @@
                         width="64" height="64">
                     <span class="about__qr-description">Наведите камеру телефона на QR‑код</span>
                 </div>
-            </div>
-        </section>
-        <section class="calculate"></section>
+            </section>
+            <section class="calculate__body">
+                <h2 class="calculate__title">Рассчитать доставку</h2>
+                <form class="calculate__form">
+                    <div class="form__dropdown-container">
+                        <label for="dep-city">Город отправки:</label>
+                        <input
+                            type="text"
+                            id="dep-city"
+                            data-js-dep-city-input
+                            class="form__input-field"
+                            placeholder="Выберите город отправки"
+                            readonly
+                            required
+                        />
+                        <ul data-js-dep-city-dropdown class="form__dropdown-list visually-hidden"></ul>
+                    </div>
+                    <div class="form__dropdown-container">
+                        <label for="dest-city">Город назначения:</label>
+                        <input
+                            type="text"
+                            id="dest-city"
+                            data-js-dest-city-input
+                            class="form__input-field"
+                            placeholder="Выберите город назначения"
+                            readonly
+                            required
+                        />
+                        <ul data-js-dest-city-dropdown class="form__dropdown-list visually-hidden"></ul>
+                        </div>
+                    <div class="form__dropdown-container">
+                        <label for="package-size">Размер посылки:</label>
+                        <input
+                            type="text"
+                            id="package-size"
+                            class="form__input-field"
+                            placeholder="Выберите размер посылки"
+                            readonly
+                            required
+                        />
+                        <ul id="size-dropdown" class="form__dropdown-list visually-hidden"></ul>
+                        <div class="dimensions-container visually-hidden" id="dimensions-container">
+                            <label for="size-type">Тип размера:</label>
+                            <select id="size-type">
+                                <option value="">Не выбран</option>
+                                <option value="approx">Примерные</option>
+                                <option value="exact">Точные</option>
+                            </select>
+                        
+                            <div id="measurements"></div>
+                        </div>
+                    </div>
+                </form>
+                <button type="submit" class="calculate__button">Рассчитать</button>
+            </section>
+        </div>
     </main>
     <footer class="footer visible-mobile">
         <div class="footer__inner container">
