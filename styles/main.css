@@ -478,4 +478,15 @@ button[aria-label]::before {
   color: var(--color-blue);
 }
 
+.about__body {
+  margin-block: 7.0625rem;
+  padding-block: 5.0625rem;
+}
+.about__qr {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  border-radius: 1rem;
+}
+
 /*# sourceMappingURL=main.css.map */
