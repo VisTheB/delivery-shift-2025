@@ -81,29 +81,6 @@ class Form_package_size {
 }
 
 export default Form_package_size
-
-
-
-// Обработчик клика по полю размера
-inputSizeField.addEventListener('click', () => {
-    if (sizeDropdown.classList.contains('hidden')) {
-    sizeDropdown.classList.remove('hidden');
-    } else {
-    sizeDropdown.classList.add('hidden');
-    }
-});
-
-// Обработчик изменения типа размера
-sizeTypeSelect.addEventListener('change', () => {
-    if (sizeTypeSelect.value === 'approx') {
-    fetchApproxSizes(); // Загружаем примерные размеры
-    } else {
-    // Для точных размеров можно определить логику
-    measurements.innerHTML = ''; // Очистить, если выбраны точные
-    }
-});
-
-// Закрытие dropdown при клике вне области
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown-container')) {
     sizeDropdown.classList.add('hidden');
