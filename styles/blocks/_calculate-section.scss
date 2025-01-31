@@ -1,0 +1,39 @@
+@use '../helpers' as *;
+
+.calculate {
+    &__body {
+        @include flex-center;
+        flex-direction: column;
+
+        margin-block: rem(113);
+        padding: var(--size32) rem(72);
+        row-gap: var(--size24);
+
+        background-color: var(--color-white);
+        border-radius: rem(24);
+    }
+    &__form {
+        @include flex-center;
+        flex-direction: column;
+
+        row-gap: var(--size48);
+    }
+    &__button {
+        @include hover {
+            color: var(--color-blue);
+            background-color: var(--color--bg-button);
+        }
+
+        display: inline-flex;
+        justify-content: center;
+
+        min-width: rem(296);
+        padding: var(--size16) rem(132);
+        border-radius: var(--size16);
+
+        font-size: var(--size16);
+        font-weight: 600;
+        color: var(--color-white);
+        background-color: var(--color-blue);
+    }
+}

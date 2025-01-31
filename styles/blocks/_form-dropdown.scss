@@ -1,0 +1,43 @@
+@use '../helpers' as *;
+
+.form {
+    &__dropdown {
+        &-container {
+            width: 100%;
+            position: relative;
+        }
+        &-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            max-height: rem(150);
+            overflow-y: auto;
+            background: var(--color-white);
+            border: 1px solid var(--color-border-light);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-block-start: rem(6);
+            border-radius: rem(8);
+        }
+        &-item {
+            padding: rem(8) rem(12);
+            cursor: pointer;
+
+            font-size: 1rem;
+            line-height: 1.5rem;
+
+            @include hover {
+                background-color: var(--color--bg-button);
+            }
+        }
+    }
+    &__input-field {
+        width: 100%;
+        border: 1px solid var(--color-border-light);
+        border-radius: rem(8);
+        box-sizing: border-box;
+
+        padding-block: rem(8);
+    }
+}

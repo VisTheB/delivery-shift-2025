@@ -1,0 +1,35 @@
+@use '../helpers' as *;
+
+.sections {
+    @include flex-center;
+    column-gap: rem(80);
+}
+
+.about {
+    &__body {
+        @include flex-center;
+        flex-direction: column;
+        row-gap: var(--size16);
+        
+        margin-block: rem(113);
+        padding-block: rem(81);
+    }
+    &__subtitle {
+        font-weight: 300;
+        line-height: rem(32);
+    }
+    &__qr {
+        @include flex-center;
+
+        margin-block-start: var(--size24);
+        padding: var(--size16);
+        column-gap: var(--size16);
+
+        background-color: var(--color-white);
+        border-radius: var(--size16);
+
+        &-description {
+            font: var(--size16)/var(--size24) var(--third-family);
+        }
+    }
+}
