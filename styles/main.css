@@ -146,7 +146,8 @@ a:where([class]) {
   Курсор-рука при наведении на элемент
  */
 button,
-label {
+label,
+input {
   cursor: pointer;
 }
 
@@ -267,6 +268,7 @@ svg * {
   --color-backgr: #F3F4F6;
   --color-dark: #141C24;
   --color-blue: #1975FF;
+  --color--bg-button: #CCE0FF;
   --color-gray: #637083;
   --color-gray-light: #CED2DA;
   --color-text-secondary: #344051;
@@ -279,9 +281,12 @@ svg * {
   --container-width: 100rem;
   --container-padding-x: 1rem;
   --transition-duration: 0.2s;
+  --size48: 3rem;
   --size32: 2rem;
   --size24: 1.5rem;
   --size16: 1rem;
+  --size14: 0.875rem;
+  --size8: 0.5rem;
 }
 @media (width <= 90.06125rem) {
   :root {
@@ -322,9 +327,15 @@ svg * {
 
 body {
   font-size: clamp(1rem, 0.8548387097rem + 0.6451612903vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family-base);
   color: var(--color-gray);
   background-color: var(--color-backgr);
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1, .h1,
@@ -394,6 +405,22 @@ button[aria-label]::before {
   content: "";
 }
 
+label {
+  font-weight: 400;
+  font-size: var(--size16);
+  color: var(--color-text-secondary);
+}
+
+input {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--color-text-secondary);
+}
+
+button {
+  border: none;
+}
+
 .header {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-border-light);
@@ -406,19 +433,24 @@ button[aria-label]::before {
   margin-inline-end: var(--size32);
 }
 .header__menu {
+  display: flex;
   flex-grow: 1;
 }
 .header__menu-list {
   display: flex;
+  flex-grow: 1;
   align-items: center;
   column-gap: 32px;
 }
 .header__menu-list li:last-child {
   margin-inline-start: auto;
 }
+.header__menu-item {
+  display: flex;
+}
 .header__menu-link {
-  line-height: var(--size32);
-  font-size: var(--size24);
+  line-height: var(--size24);
+  font-size: var(--size16);
   font-weight: 500;
   align-items: center;
 }
@@ -436,6 +468,278 @@ button[aria-label]::before {
 .menu-link__img {
   height: var(--size24);
   margin-inline-end: var(--size16);
+}
+
+.footer {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border-light);
+}
+.footer__inner {
+  padding-inline: 0;
+}
+.footer__menu-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__menu-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.125rem;
+  padding-block: 0.625rem;
+  font-weight: 400;
+  line-height: 0.75rem;
+  font-size: 0.625rem;
+}
+.footer__menu-item {
+  flex-basis: 7.5rem;
+}
+.footer span.is-active {
+  color: var(--color-blue);
+}
+
+.sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5rem;
+}
+@media (width <= 47.99875rem) {
+  .sections {
+    flex-direction: column;
+  }
+}
+
+.about__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: var(--size16);
+  margin-block: 7.0625rem;
+  padding-block: 5.0625rem;
+}
+@media (width <= 47.99875rem) {
+  .about__body {
+    row-gap: var(--size8);
+    padding-block: 0;
+    margin-block-start: var(--size32);
+    margin-block-end: var(--size24);
+  }
+}
+.about__subtitle {
+  font-weight: 300;
+  line-height: 2rem;
+}
+.about__qr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block-start: var(--size24);
+  padding: var(--size16);
+  column-gap: var(--size16);
+  background-color: var(--color-white);
+  border-radius: var(--size16);
+}
+@media (width <= 47.99875rem) {
+  .about__qr {
+    margin-block-start: var(--size16);
+  }
+}
+.about__qr-description {
+  font: var(--size16)/var(--size24) var(--third-family);
+}
+
+.form__dropdown-container {
+  width: 100%;
+  position: relative;
+}
+.form__dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  max-height: 9.375rem;
+  overflow-y: auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-block-start: 0.375rem;
+  border-radius: 0.5rem;
+}
+.form__dropdown-item {
+  padding: var(--size8) 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+@media (any-hover: hover) {
+  .form__dropdown-item:hover {
+    background-color: var(--color--bg-button);
+  }
+}
+@media (any-hover: none) {
+  .form__dropdown-item:active {
+    background-color: var(--color--bg-button);
+  }
+}
+.form__input-field {
+  width: 100%;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--size8);
+  box-sizing: border-box;
+  padding-block: var(--size8);
+}
+
+.calculate__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-block: 7.0625rem;
+  padding: var(--size32) 4.5rem;
+  row-gap: var(--size24);
+  background-color: var(--color-white);
+  border-radius: 1.5rem;
+}
+@media (width <= 47.99875rem) {
+  .calculate__body {
+    margin-block-start: var(--size32);
+    margin-block-end: var(--size24);
+    padding: var(--size32) var(--size16);
+  }
+}
+.calculate__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: var(--size48);
+}
+.calculate__button {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 18.5rem;
+  padding: var(--size16) 8.25rem;
+  border-radius: var(--size16);
+  font-size: var(--size16);
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+}
+@media (any-hover: hover) {
+  .calculate__button:hover {
+    color: var(--color-blue);
+    background-color: var(--color--bg-button);
+  }
+}
+@media (any-hover: none) {
+  .calculate__button:active {
+    color: var(--color-blue);
+    background-color: var(--color--bg-button);
+  }
+}
+
+.dimensions__select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--size8);
+  margin-block: var(--size8);
+  background-color: var(--color-backgr);
+  border-radius: var(--size16);
+}
+.dimensions__button {
+  cursor: pointer;
+  flex-basis: 50%;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0.625rem var(--size16);
+  border-radius: var(--size16);
+  font-size: var(--size14);
+  line-height: 1.25rem;
+  color: var(--color-gray);
+  background-color: inherit;
+}
+@media (any-hover: hover) {
+  .dimensions__button:hover {
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    border-radius: var(--size14);
+  }
+}
+@media (any-hover: none) {
+  .dimensions__button:active {
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    border-radius: var(--size14);
+  }
+}
+.dimensions__button.active {
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  border-radius: var(--size14);
+}
+
+#measurements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: var(--size16);
+  padding: var(--size8) var(--size16);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--size8);
+  background-color: var(--color-white);
+}
+#measurements label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--size16);
+  width: 100%;
+}
+#measurements input {
+  width: 70%;
+  margin-inline-start: auto;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--size8);
+}
+
+.form__dropdown-item-size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--size16);
+  margin: var(--size8);
+  padding: var(--size16);
+  background-color: var(--color-backgr);
+  border-radius: var(--size8);
+  cursor: pointer;
+}
+@media (any-hover: hover) {
+  .form__dropdown-item-size:hover {
+    background-color: var(--color--bg-button);
+  }
+}
+@media (any-hover: none) {
+  .form__dropdown-item-size:active {
+    background-color: var(--color--bg-button);
+  }
+}
+.form__dropdown-item-size div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.form__dropdown-item-size h3 {
+  margin: 0 0 var(--size8) 0;
+}
+.form__dropdown-item-size span {
+  font-size: 0.75rem;
+  line-height: var(--size16);
 }
 
 /*# sourceMappingURL=main.css.map */

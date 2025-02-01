@@ -5,6 +5,7 @@
     --color-backgr : #F3F4F6;
     --color-dark: #141C24;
     --color-blue: #1975FF;
+    --color--bg-button: #CCE0FF;
     --color-gray: #637083;
     --color-gray-light: #CED2DA;
     --color-text-secondary: #344051;
@@ -21,9 +22,12 @@
 
     --transition-duration: 0.2s;
 
+    --size48: #{rem(48)};
     --size32: #{rem(32)};
     --size24: #{rem(24)};
     --size16: #{rem(16)};
+    --size14: #{rem(14)};
+    --size8: #{rem(8)};
 
     @include laptop {
         --container-width: #{rem(960)};

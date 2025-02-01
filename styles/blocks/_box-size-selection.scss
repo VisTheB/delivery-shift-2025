@@ -1,0 +1,64 @@
+@use '../helpers' as *;
+
+.dimensions {
+    &__select {
+        @include flex-center;
+        column-gap: var(--size8);
+
+        margin-block: var(--size8);
+        background-color: var(--color-backgr);
+        border-radius: var(--size16);
+    }
+    &__button {
+        @include hover {
+            color: var(--color-dark);
+            background-color: var(--color-white);
+            border-radius: var(--size14);
+        }
+
+        cursor: pointer;
+
+        flex-basis: 50%;
+        display: inline-flex;
+        justify-content: center;
+
+        padding: rem(10) var(--size16);
+        border-radius: var(--size16);
+
+        font-size: var(--size14);
+        line-height: rem(20);
+        color: var(--color-gray);
+        background-color: inherit;
+
+        &.active {
+            color: var(--color-dark);
+            background-color: var(--color-white);
+            border-radius: var(--size14);
+        }
+    }
+}
+
+#measurements {
+        @include flex-center;
+        flex-direction: column;
+        row-gap: var(--size16);
+
+        padding: var(--size8) var(--size16);
+        border: 1px solid var(--color-border-light);
+        border-radius: var(--size8);
+        background-color: var(--color-white);
+
+        label {
+            @include flex-center;
+            column-gap: var(--size16);
+            width: 100%;
+        }
+        input {
+            width: 70%;
+            margin-inline-start: auto;
+            padding: rem(12);
+
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--size8);
+        }
+}
