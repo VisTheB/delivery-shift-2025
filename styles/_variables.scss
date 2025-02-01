@@ -8,6 +8,7 @@
     --color-gray: #637083;
     --color-gray-light: #CED2DA;
     --color-text-secondary: #344051;
+    --color-border-light: #CED2DA;
     --color-green: #40BF7F;
     --color-red: #F50;
 
@@ -19,6 +20,10 @@
     --container-padding-x: #{rem(16)};
 
     --transition-duration: 0.2s;
+
+    --size32: #{rem(32)};
+    --size24: #{rem(24)};
+    --size16: #{rem(16)};
 
     @include laptop {
         --container-width: #{rem(960)};
