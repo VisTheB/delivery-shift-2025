@@ -26,6 +26,8 @@
     --size32: #{rem(32)};
     --size24: #{rem(24)};
     --size16: #{rem(16)};
+    --size14: #{rem(14)};
+    --size8: #{rem(8)};
 
     @include laptop {
         --container-width: #{rem(960)};
