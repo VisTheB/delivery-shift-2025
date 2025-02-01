@@ -3,9 +3,16 @@
 body {
     @include fluid-text(24, 16);
 
+    display: flex;
+    flex-direction: column;
+
     font-family: var(--font-family-base);
     color: var(--color-gray);
     background-color: var(--color-backgr);
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1, .h1,
@@ -68,4 +75,20 @@ button {
       content: '';
     }
   }
+}
+
+label {
+  font-weight: 400;
+  font-size: var(--size16);
+  color: var(--color-text-secondary); 
+}
+
+input {
+  font-size: rem(16);
+  line-height: rem(24);
+  color: var(--color-text-secondary);
+}
+
+button {
+  border: none;
 }

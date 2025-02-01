@@ -39,6 +39,116 @@
                 </nav>
             </div>
         </div>
-    </header>
+    </header> 
+    <main>
+        <div class="sections container">
+            <section class="about__body">
+                <h1 class="about__title">Мы доставим ваш заказ</h1>
+                <p class="about__subtitle">Отправляйте посылки в приложении Шифт Delivery</p>
+                <div class="about__qr">
+                    <img 
+                        src="./images/logo-main.svg" 
+                        alt="Логотип" 
+                        class="about__qr-logo"
+                        width="64" height="64">
+                    <img 
+                        src="./images/qr-main.svg" 
+                        alt="QR-код" 
+                        class="about__qr-img"
+                        width="64" height="64">
+                    <span class="about__qr-description">Наведите камеру телефона на QR‑код</span>
+                </div>
+            </section>
+            <section class="calculate__body">
+                <h2 class="calculate__title">Рассчитать доставку</h2>
+                <form class="calculate__form">
+                    <div class="form__dropdown-container">
+                        <label for="dep-city">Город отправки:</label>
+                        <input
+                            type="text"
+                            id="dep-city"
+                            data-js-dep-city-input
+                            class="form__input-field"
+                            placeholder="Выберите город отправки"
+                            readonly
+                            required
+                        />
+                        <ul data-js-dep-city-dropdown class="form__dropdown-list visually-hidden"></ul>
+                    </div>
+                    <div class="form__dropdown-container">
+                        <label for="dest-city">Город назначения:</label>
+                        <input
+                            type="text"
+                            id="dest-city"
+                            data-js-dest-city-input
+                            class="form__input-field"
+                            placeholder="Выберите город назначения"
+                            readonly
+                            required
+                        />
+                        <ul data-js-dest-city-dropdown class="form__dropdown-list visually-hidden"></ul>
+                        </div>
+                    <div class="form__dropdown-container">
+                        <label for="package-size">Размер посылки:</label>
+                        <input
+                            type="text"
+                            id="package-size"
+                            class="form__input-field"
+                            placeholder="Выберите размер посылки"
+                            readonly
+                            required
+                        />
+                        <div class="dimensions-container visually-hidden" id="dimensions-container">
+                            <div class="dimensions__select">
+                                <div id="button__approx" class="dimensions__button">Примерные</div>
+                                <div id="button__exact" class="dimensions__button">Точные</div>
+                            </div>
+                            <div id="measurements" class="visually-hidden"></div>
+                        </div>
+                        <ul id="size-dropdown" class="form__dropdown-list visually-hidden"></ul>
+                    </div>
+                </form>
+                <button type="submit" class="calculate__button">Рассчитать</button>
+            </section> 
+        </div>
+    </main>
+    <footer class="footer visible-mobile">
+        <div class="footer__inner container">
+            <nav class="footer__menu">
+                <ul class="footer__menu-list">
+                    <li class="footer__menu-item">
+                        <a href="/" class="footer__menu-link">
+                            <img 
+                                src="./icons/calculate-active.svg" 
+                                alt="" 
+                                class="footer__menu-link-img is-active" 
+                                width="24" height="24">
+                            <span class="footer__menu-link-span is-active">Расчёт</span>
+                        </a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a href="/" class="footer__menu-link">
+                            <img 
+                                src="./icons/icon-history.svg" 
+                                alt="" 
+                                class="footer__menu-link-img" 
+                                width="24" height="24">
+                            <span class="footer__menu-link-span">История</span>
+                        </a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a href="/" class="footer__menu-link">
+                            <img 
+                                src="./icons/icon-profile.svg" 
+                                alt="" 
+                                class="footer__menu-link-img" 
+                                width="24" height="24">
+                            <span class="footer__menu-link-span">Профиль</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
   </body>
 </html>
