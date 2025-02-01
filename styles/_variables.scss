@@ -1,0 +1,31 @@
+@use 'helpers' as *;
+
+:root {
+    --color-white : #FFF;
+    --color-backgr : #F3F4F6;
+    --color-dark: #141C24;
+    --color-blue: #1975FF;
+    --color-gray: #637083;
+    --color-gray-light: #CED2DA;
+    --color-text-secondary: #344051;
+    --color-border-light: #CED2DA;
+    --color-green: #40BF7F;
+    --color-red: #F50;
+
+    --font-family-base: 'Inter', sans-serif;
+    --second-family: "Fira Sans", sans-serif;
+    --third-family: "Roboto", sans-serif;
+
+    --container-width: #{rem(1600)};
+    --container-padding-x: #{rem(16)};
+
+    --transition-duration: 0.2s;
+
+    --size32: #{rem(32)};
+    --size24: #{rem(24)};
+    --size16: #{rem(16)};
+
+    @include laptop {
+        --container-width: #{rem(960)};
+    }
+}
