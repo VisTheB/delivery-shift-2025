@@ -98,21 +98,18 @@
                             readonly
                             required
                         />
-                        <ul id="size-dropdown" class="form__dropdown-list visually-hidden"></ul>
                         <div class="dimensions-container visually-hidden" id="dimensions-container">
-                            <label for="size-type">Тип размера:</label>
-                            <select id="size-type">
-                                <option value="">Не выбран</option>
-                                <option value="approx">Примерные</option>
-                                <option value="exact">Точные</option>
-                            </select>
-                        
-                            <div id="measurements"></div>
+                            <div class="dimensions__select">
+                                <div id="button__approx" class="dimensions__button">Примерные</div>
+                                <div id="button__exact" class="dimensions__button">Точные</div>
+                            </div>
+                            <div id="measurements" class="visually-hidden"></div>
                         </div>
+                        <ul id="size-dropdown" class="form__dropdown-list visually-hidden"></ul>
                     </div>
                 </form>
                 <button type="submit" class="calculate__button">Рассчитать</button>
-            </section>
+            </section> 
         </div>
     </main>
     <footer class="footer visible-mobile">

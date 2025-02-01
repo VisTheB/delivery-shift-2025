@@ -1,0 +1,33 @@
+@use '../helpers' as *;
+
+.form {
+    &__dropdown {
+        &-item-size {
+            @include hover {
+                background-color: var(--color--bg-button);
+            }
+            @include flex-center;
+            column-gap: var(--size16);
+
+            margin: var(--size8);
+            padding: var(--size16);
+            background-color: var(--color-backgr);
+            border-radius: var(--size8);
+
+            cursor: pointer;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+            h3 {
+                margin: 0 0 var(--size8) 0;
+            }
+            span {
+                font-size: rem(12);
+                line-height: var(--size16);
+            }
+        }
+    }
+}

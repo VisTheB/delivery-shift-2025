@@ -2,6 +2,11 @@
 
 .calculate {
     &__body {
+        @include mobile {
+            margin-block-start: var(--size32);
+            margin-block-end: var(--size24);
+            padding: var(--size32) var(--size16);
+        }
         @include flex-center;
         flex-direction: column;
 

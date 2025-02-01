@@ -2,10 +2,60 @@ class Form_package_size {
     constructor() {
         this.inputSizeField = document.getElementById('package-size');
         this.sizeDropdown = document.getElementById('size-dropdown');
-        this.sizeTypeSelect = document.getElementById('size-type');
+        this.buttonApproxSize = document.getElementById('button__approx');
+        this.buttonExactSize = document.getElementById('button__exact');
         this.dimensionsContainer = document.getElementById('dimensions-container');
         this.measurements = document.getElementById('measurements');
         this.bindEvents()
+    }
+
+    onInputSizeFieldClick = () => this.dimensionsContainer.classList.toggle('visually-hidden')
+
+    onButtonApproxSizeClick = () => {
+        if (this.sizeDropdown.classList.contains('visually-hidden')) {
+            this.buttonApproxSize.classList.add('active')
+            this.buttonExactSize.classList.remove('active')
+            this.measurements.classList.add('visually-hidden')
+
+            this.fetchApproxSizes()
+        } else {
+            this.buttonExactSize.classList.remove('active')
+            this.buttonApproxSize.classList.remove('active')
+            this.sizeDropdown.classList.add('visually-hidden')
+        }        
+    }
+
+    onButtonExactSizeClick = () => {
+        if (this.measurements.classList.contains('visually-hidden')) {
+            this.buttonExactSize.classList.add('active')
+            this.buttonApproxSize.classList.remove('active')
+            this.sizeDropdown.classList.add('visually-hidden')
+
+            this.renderMeasurementFields()
+        } else {
+            this.buttonExactSize.classList.remove('active')
+            this.buttonApproxSize.classList.remove('active')
+            this.measurements.classList.add('visually-hidden')
+        }
+    }
+
+    // Закрыть dropdown при клике вне
+    onNotDropdownClick = (e) => {
+        if (!e.target.closest('.form__dropdown-container')) {
+            this.sizeDropdown.classList.add('visually-hidden')
+            this.dimensionsContainer.classList.add('visually-hidden')
+            this.measurements.classList.add('visually-hidden')
+
+            this.buttonExactSize.classList.remove('active')
+            this.buttonApproxSize.classList.remove('active')
+        }
+    }
+
+    bindEvents() {
+        this.inputSizeField.addEventListener('click', this.onInputSizeFieldClick)
+        this.buttonApproxSize.addEventListener('click', this.onButtonApproxSizeClick)
+        this.buttonExactSize.addEventListener('click', this.onButtonExactSizeClick)
+        document.addEventListener('click', this.onNotDropdownClick)
     }
 
     // Функция для загрузки примерных размеров
@@ -31,46 +81,57 @@ class Form_package_size {
 
     // Функция для отображения списка размеров
     renderSizeDropdown = (sizes) => {
+        this.inputSizeField.value = ''
         this.sizeDropdown.innerHTML = ''
 
         sizes.forEach(size => {
             const item = document.createElement('li')
-            item.innerText = `${size.name} (${size.length}x${size.width}x${size.height} см)`
-            item.className = 'form__dropdown-item'
+            item.innerHTML = `
+                <img 
+                    src="./images/logo-main.svg" 
+                    alt="Логотип" 
+                    class=""
+                    width="48" height="48">
+                <div>
+                    <h3>${size.name}</h3>
+                    <span>${size.length}x${size.width}x${size.height} см</span>
+                </div>
+            `
+            item.className = 'form__dropdown-item-size'
             item.addEventListener('click', () => this.selectSize(size))
             this.sizeDropdown.appendChild(item)
         })
+        this.sizeDropdown.classList.remove('visually-hidden')
     }
 
     // Функция выбора размера посылки
     selectSize = (size) => {
         this.inputSizeField.value = size.name
         this.sizeDropdown.classList.add('visually-hidden')
-        this.dimensionsContainer.classList.remove('visually-hidden')
-        this.renderMeasurementFields()
     }
 
     // Функция для отображения полей для точных размеров
     renderMeasurementFields = () => {
-        const selectedType = this.sizeTypeSelect.value
-        this.measurements.innerHTML = ''
-
-        if (this.selectedType === 'approx') {
-            this.measurements.innerHTML = `
-                <p>Размеры:</p>
-                <input type="text" placeholder="Длина (см)" />
-                <input type="text" placeholder="Ширина (см)" />
-                <input type="text" placeholder="Высота (см)" />
-            `
-        } else if (selectedType === 'exact') {
-            this.measurements.innerHTML = `
-                <p>Размеры:</p>
-                <input type="text" placeholder="Длина (см)" />
-                <input type="text" placeholder="Ширина (см)" />
-                <input type="text" placeholder="Высота (см)" />
-                <input type="text" placeholder="Вес (кг)" />
-            `
-        }
+        this.inputSizeField.value = ''
+        this.measurements.innerHTML = `
+            <label>
+                Длина
+                <input type="text" placeholder="см" required/>
+            </label>
+            <label>
+                Ширина
+                <input type="text" placeholder="см" required/>
+            </label>
+            <label>
+                Высота
+                <input type="text" placeholder="см" required/>
+            </label>
+            <label>
+                Вес
+                <input type="text" placeholder="кг" required/>
+            </label>
+        `
+        this.measurements.classList.remove('visually-hidden')
     }
 
     // Функция отображения ошибки
@@ -81,8 +142,3 @@ class Form_package_size {
 }
 
 export default Form_package_size
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown-container')) {
-    sizeDropdown.classList.add('hidden');
-    }
-});

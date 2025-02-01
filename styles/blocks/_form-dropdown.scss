@@ -21,11 +21,10 @@
             border-radius: rem(8);
         }
         &-item {
-            padding: rem(8) rem(12);
+            padding: var(--size8) rem(12);
             cursor: pointer;
 
             font-size: 1rem;
-            line-height: 1.5rem;
 
             @include hover {
                 background-color: var(--color--bg-button);
@@ -35,9 +34,9 @@
     &__input-field {
         width: 100%;
         border: 1px solid var(--color-border-light);
-        border-radius: rem(8);
+        border-radius: var(--size8);
         box-sizing: border-box;
 
-        padding-block: rem(8);
+        padding-block: var(--size8);
     }
 }

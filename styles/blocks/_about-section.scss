@@ -1,12 +1,22 @@
 @use '../helpers' as *;
 
 .sections {
+    @include mobile {
+        flex-direction: column;
+    }
     @include flex-center;
     column-gap: rem(80);
 }
 
 .about {
     &__body {
+        @include mobile {
+            row-gap: var(--size8);
+            
+            padding-block: 0;
+            margin-block-start: var(--size32);
+            margin-block-end: var(--size24);
+        }
         @include flex-center;
         flex-direction: column;
         row-gap: var(--size16);
@@ -19,6 +29,9 @@
         line-height: rem(32);
     }
     &__qr {
+        @include mobile {
+            margin-block-start: var(--size16);
+        }
         @include flex-center;
 
         margin-block-start: var(--size24);
