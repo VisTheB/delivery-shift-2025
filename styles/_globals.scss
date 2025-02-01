@@ -76,3 +76,19 @@ button {
     }
   }
 }
+
+label {
+  font-weight: 400;
+  font-size: var(--size16);
+  color: var(--color-text-secondary); 
+}
+
+input {
+  font-size: rem(16);
+  line-height: rem(24);
+  color: var(--color-text-secondary);
+}
+
+button {
+  border: none;
+}
